@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V.A.U.L.T. — V.A.U.L.T.</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>V.A.U.L.T.</h1>
+    <p class="subtitle">Voice-Activated Unified Logic Terminal</p>
+  </header>
+
+  <main>
+    <!-- Left: Metrics -->
+    <section id="metrics" class="panel">
+      <h2>Metrics</h2>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span class="metric-value" id="m-vault">—</span>
+          <span class="metric-label">Vault Notes</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-reports">—</span>
+          <span class="metric-label">Reports</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-skills">—</span>
+          <span class="metric-label">Skills Loaded</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-stt">—</span>
+          <span class="metric-label">STT Device</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-tts">—</span>
+          <span class="metric-label">TTS</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-last">—</span>
+          <span class="metric-label">Last Command</span>
+        </div>
+      </div>
+      <!-- Social metrics render here once API keys are configured.
+           See HANDOFF.md step 5. -->
+      <div class="metric-grid" id="social-metrics" hidden>
+        <div class="metric-card">
+          <span class="metric-value" id="m-yt-subs">—</span>
+          <span class="metric-label">YT Subscribers</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-yt-views">—</span>
+          <span class="metric-label">Latest Views</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value" id="m-ig">—</span>
+          <span class="metric-label">IG Followers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Center: Voice Status -->
+    <section id="voice" class="panel">
+      <h2>Voice</h2>
+      <div id="orb-container">
+        <canvas id="orb" width="280" height="280"></canvas>
+        <p id="voice-state">OFFLINE</p>
+      </div>
+      <div id="mic-controls">
+        <button id="mic-btn">Hold to Talk</button>
+        <button id="mic-cancel" hidden>Cancel</button>
+      </div>
+
+      <div id="transcript-box">
+        <p id="transcript"></p>
+        <p id="response"></p>
+        <p id="voice-error"></p>
+      </div>
+    </section>
+
+    <!-- Right: Command Deck / Subscriptions -->
+    <section id="commands" class="panel">
+      <div class="tab-bar">
+        <button class="tab active" data-tab="skills">Skills</button>
+        <button class="tab" data-tab="subs">Subs</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-skills">
+        <div class="command-grid">
+          <button class="cmd-btn" data-cmd="morning">Morning Routine</button>
+          <button class="cmd-btn" data-cmd="trend-scan">Trend Scan</button>
+          <button class="cmd-btn" data-cmd="plan-today">Plan Today</button>
+          <button class="cmd-btn" data-cmd="weekly-status">Weekly Status</button>
+          <button class="cmd-btn" data-cmd="subs-audit">Subscription Audit</button>
+        </div>
+        <div id="cmd-output"></div>
+      </div>
+
+      <div class="tab-panel" id="tab-subs">
+        <div id="subs-summary">
+          <span class="subs-total" id="subs-monthly">—</span>
+          <span class="subs-label">per month</span>
+          <span class="subs-sub" id="subs-yearly"></span>
+        </div>
+        <div id="subs-warn" hidden></div>
+        <div id="subs-review" hidden></div>
+        <div id="subs-stale" hidden></div>
+        <div id="subs-renewals" hidden></div>
+        <div id="subs-list"></div>
+        <div id="subs-overlap" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="clock"></span>
+    <span class="separator">|</span>
+    <span id="connection-status">Disconnected</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

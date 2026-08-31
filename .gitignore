@@ -1,3 +1,68 @@
+# ══ V.A.U.L.T. ════════════════════════════════════════
+# Anything below is either a credential, personal data, a large binary, or
+# generated at runtime. None of it belongs in version control.
+
+# ── Secrets ────────────────────────────────────────────
+# .env holds the Anthropic API key. credentials.json is the Google OAuth
+# client (client_id + client_secret). token.json is the granted access and
+# refresh token for the user's Gmail account.
+.env
+.env.*
+!.env.example
+credentials.json
+client_secret*.json
+token.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_dsa*
+*.keystore
+.netrc
+.npmrc
+cookies.txt
+.claude/settings.local.json
+
+# ── Personal data ──────────────────────────────────────
+# vault/ is the live Obsidian vault: real notes and subscription reports
+# containing actual merchants and amounts. vault.example/ is the safe template
+# and IS committed.
+vault/
+CV-NOTES.md
+docs/CV-NOTES.md
+*.private.md
+screenshots/
+
+# ── Local databases ────────────────────────────────────
+subs.db
+subs.db-journal
+*.sqlite
+*.sqlite3
+
+# ── Model weights (~340 MB, downloaded by setup) ───────
+*.onnx
+*.bin
+
+# ── Generated at runtime ───────────────────────────────
+hud/status.json
+hud/metrics.json
+*.wav
+*.mp3
+scratch_*
+check.wav
+
+# ── Environments / dependencies ────────────────────────
+.venv/
+node_modules/
+
+# ── OS noise ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Python ─────────────────────────────────────────────
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
